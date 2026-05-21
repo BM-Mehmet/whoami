@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Mehmet Çam | Siber Güvenlik & Sertifikalar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 10% 20%, #0a0f1e, #03060c);
+      font-family: 'Fira Code', 'Courier New', 'Consolas', monospace;
+      color: #c8f0ff;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    /* scrollbar cyber style */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f1722;
+      border-left: 1px solid #1e3a5f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f7a5c;
+      border-radius: 4px;
+      box-shadow: inset 0 0 4px #0affb4;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2bc48a;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      backdrop-filter: blur(2px);
+    }
+
+    /* terminal başlık efekti */
+    .glitch-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 2px solid #0affb4;
+      display: inline-block;
+      width: 100%;
+      padding-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-shadow: 0 0 6px #0affb4, 0 0 12px #0a5c3e;
+      word-break: break-word;
+    }
+    .tagline {
+      font-family: monospace;
+      color: #8ecae6;
+      background: #07111e80;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      border-left: 3px solid #0affb4;
+    }
+
+    .card {
+      background: #0b1120cc;
+      backdrop-filter: blur(8px);
+      border: 1px solid #1f4b6e;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      transition: 0.2s ease-in-out;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 0 1px #1f7a5c30 inset;
+    }
+    .card:hover {
+      border-color: #2bc48a;
+      box-shadow: 0 16px 32px rgba(0, 255, 170, 0.08), 0 0 0 2px #0affb420 inset;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.8rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      border-left: 5px solid #0affb4;
+      padding-left: 1.2rem;
+    }
+    .icon-badge {
+      background: #0c1a29;
+      border-radius: 40px;
+      padding: 0.2rem 0.6rem;
+      font-size: 1.3rem;
+    }
+
+    /* hakkımda / about */
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .avatar-placeholder {
+      flex: 0 0 120px;
+      text-align: center;
+    }
+    .avatar-icon {
+      font-size: 5rem;
+      background: #0b1424;
+      border-radius: 50%;
+      padding: 1rem;
+      border: 2px solid #26c485;
+      box-shadow: 0 0 10px #0affb460;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    .highlight {
+      color: #a3ffd6;
+      text-shadow: 0 0 2px #0f0;
+      background: #0b2a2a30;
+      padding: 0.1rem 0.3rem;
+      border-radius: 6px;
+    }
+    .cyber-tag {
+      display: inline-block;
+      background: #102b2b;
+      border-radius: 16px;
+      padding: 0.2rem 1rem;
+      margin-right: 0.6rem;
+      font-size: 0.75rem;
+      border: 1px solid #258f6e;
+      margin-top: 10px;
+    }
+
+    /* sertifika grid */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.8rem;
+    }
+    .cert-item {
+      background: #06101ee0;
+      border-radius: 20px;
+      padding: 1.4rem;
+      border-left: 6px solid #0affb4;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px #00000040;
+      backdrop-filter: blur(4px);
+    }
+    .cert-item:hover {
+      transform: translateY(-4px);
+      background: #0b182be0;
+      border-left-color: #ffd966;
+    }
+    .cert-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .cert-name span {
+      font-size: 1.7rem;
+    }
+    .cert-issuer {
+      font-size: 0.85rem;
+      color: #9bd7e5;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.2px;
+    }
+    .cert-date {
+      font-size: 0.7rem;
+      font-family: monospace;
+      background: #0d3b3b;
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      color: #b9f6e4;
+    }
+
+    /* projeler özel */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .project-item {
+      background: #07121fe0;
+      border-radius: 20px;
+      padding: 1rem 1.4rem;
+      border-right: 3px solid #0affb4;
+    }
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #b9ffe0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* yetenekler etiket */
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+    .skill-badge {
+      background: #0e2530;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      border: 1px solid #369c7a;
+      font-family: monospace;
+    }
+
+    /* sosyal hesaplar */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .social-card {
+      background: #0a101e;
+      border-radius: 60px;
+      padding: 0.9rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #d3f2ff;
+      font-weight: 500;
+      transition: 0.2s;
+      border: 1px solid #2a6c6c;
+      backdrop-filter: blur(4px);
+      font-size: 1rem;
+    }
+    .social-card:hover {
+      background: #0f2a2a;
+      border-color: #0affb4;
+      color: white;
+      box-shadow: 0 0 12px #0affb460;
+      transform: scale(1.02);
+    }
+    .social-icon {
+      font-size: 1.6rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      border-top: 1px dashed #2b4f6e;
+      padding-top: 1.8rem;
+      color: #5c8ea4;
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 1.2rem; }
+      .card { padding: 1.3rem; }
+      h1 { font-size: 2rem; }
+      .section-title { font-size: 1.4rem; }
+      .avatar-icon { width: 90px; height: 90px; font-size: 3.2rem; }
+      .social-card { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
+    }
+
+    @keyframes pulseBorder {
+      0% { border-color: #0affb450; }
+      100% { border-color: #0affb4; }
+    }
+    .cert-item {
+      animation: pulseBorder 3s infinite alternate;
+    }
+    .cert-item:hover {
+      animation: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="glitch-header">
+    <h1>// MSEC::Mehmet_Çam</h1>
+    <div class="tagline"># RedTeam | # Siber Güvenlik Mühendisi Adayı | # Linux System Admin</div>
+  </div>
+
+  <!-- BEN KİMİM? (CV'deki isim, eğitim, açıklama) -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">🧑‍💻</span> 
+      <span>> whoami --identity</span>
+    </div>
+    <div class="about-grid">
+      <div class="avatar-placeholder">
+        <div class="avatar-icon">
+          🛡️⚙️
+        </div>
+        <div style="font-size: 0.7rem; margin-top: 8px;">[root@cyberlab]</div>
+      </div>
+      <div class="about-text">
+        <p>Merhaba, ben <strong class="highlight">Mehmet Çam</strong> (Cyber alias: <span class="highlight">MSEC</span>).  
+        Mühendisliği mezunu. Aktif olarak <strong>siber güvenlik, sistem yönetimi ve savunma teknolojileri</strong> alanlarında çalışıyorum.</p>
+        <p>🔐 <strong>Odak Alanlarım:</strong> Penetrasyon testi, WAF (ModSecurity), honeypot (Portspoof), Linux güvenliği, PAM modülü geliştirme, Docker/K8s, ve güvenlik araçları (Metasploit, Burp Suite, Sqlmap, Nuclei).</p>
+        <p>🎯 <strong>Staj Deneyimi:</strong> Adıyaman Valiliği (2024) & KSÜ Bilgi İşlem Daire Başkanlığı (2025) - Kurumsal altyapı ve siber güvenlik süreçleri.</p>
+        <div>
+          <span class="cyber-tag">#PenetrationTesting</span>
+          <span class="cyber-tag">#DockerCompose</span>
+          <span class="cyber-tag">#WAF</span>
+          <span class="cyber-tag">#SystemAdministrator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJELER (CV'den alındı) -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">📁</span>
+      <span>> ./projects --show-all</span>
+    </div>
+    <div class="project-list">
+      <div class="project-item">
+        <div class="project-title">🔒 iamsecure (docker compose)</div>
+        <div style="font-size:0.9rem; margin-top: 5px;">OWASP ModSecurity WAF + Portspoof aracı ile honeypot kurulumu. Gerçek zamanlı saldırı tespiti ve yanıltma sistemi.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">⚠️ iamnotsecure (docker compose)</div>
+        <div style="font-size:0.9rem; margin-top: 5px;">Yaygın güvenlik açıkları içeren pentest lab ortamı kurulumu, sömürülmesi ve dökümantasyonu. Eğitim amaçlı zafiyetli container yapısı.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">🔑 My-Pamkit</div>
+        <div style="font-size:0.9rem; margin-top: 5px;">Linux PAM modülünü manipüle ederek ek bir kimlik doğrulama katmanı (backdoor mekanizması değil, çok faktörlü konsept) geliştirme.</div>
+      </div>
+      <div class="project-item">
+        <div class="project-title">📦 Açık kaynak katkıları</div>
+        <div style="font-size:0.9rem; margin-top: 5px;">Tüm projeler <span class="highlight">github.com/BM-Mehmet</span> adresinde paylaşılmaktadır. Docker, güvenlik araçları ve otomasyon scriptleri.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YETENEKLER (CV'deki teknik beceriler) -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">⚙️</span>
+      <span>> skillset --enumerate</span>
+    </div>
+    <div class="skills-cloud">
+      <span class="skill-badge">Git/GitHub</span>
+      <span class="skill-badge">Linux (Desktop/Server)</span>
+      <span class="skill-badge">Apache/Nginx</span>
+      <span class="skill-badge">Docker / Docker-Compose</span>
+      <span class="skill-badge">Podman / K8s</span>
+      <span class="skill-badge">Metasploit / Burp Suite</span>
+      <span class="skill-badge">Sqlmap / Nmap / Nuclei</span>
+      <span class="skill-badge">ModSecurity WAF</span>
+      <span class="skill-badge">Windows Server / AD / Hyper-V</span>
+      <span class="skill-badge">VMware ESXI</span>
+      <span class="skill-badge">Veeam Backup</span>
+      <span class="skill-badge">Raid Yapılandırma</span>
+      <span class="skill-badge">Packet Tracer (VLAN/Router)</span>
+      <span class="skill-badge">Google Cloud / Azure</span>
+      <span class="skill-badge">Redis, MySQL, PostgreSQL</span>
+      <span class="skill-badge">Filezilla / Putty</span>
+      <span class="skill-badge">AnyDesk / RustDesk</span>
+      <span class="skill-badge">VPN Kurulum & Yönetim</span>
+      <span class="skill-badge">VS Code </span>
+    </div>
+    <div style="margin-top: 1rem; border-left: 2px solid #2c786c; padding-left: 1rem; font-size:0.8rem;">
+      🌐 İngilizce – B1 (teknik döküman okuyup anlama, hata çözümleme)
+    </div>
+  </div>
+
+  <!-- SERTİFİKALAR (CV'deki gerçek sertifikalar) -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">📜</span>
+      <span>> ls -l /certs/ --secured</span>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-item">
+        <div class="cert-name"><span>🏅</span> Siber Vatan 2023</div>
+        <div class="cert-issuer">Siber Vatan Programı</div>
+        <div class="cert-date">📅 2023</div>
+        <div style="margin-top: 8px; font-size:0.8rem;">Temel Linux, Web güvenliği, Siber tehdit istihbaratı</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name"><span>🏅</span> Siber Vatan 2025</div>
+        <div class="cert-issuer">Siber Vatan Programı</div>
+        <div class="cert-date">📅 2025</div>
+        <div style="margin-top: 8px; font-size:0.8rem;">Linux, Web güvenliği, Zararlı yazılım analizi, Tehdit istihbaratı</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name"><span>🔐</span> CAPT</div>
+        <div class="cert-issuer">Hackviser</div>
+        <div class="cert-date">📅 2024 · Sürekli</div>
+        <div style="margin-top: 8px; font-size:0.8rem;">Certified Associate Penetration Tester</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name"><span>🌐</span> CWSE</div>
+        <div class="cert-issuer">Hackviser</div>
+        <div class="cert-date">📅 2025</div>
+        <div style="margin-top: 8px; font-size:0.8rem;">Certified Web Security Expert</div>
+      </div>
+    </div>
+    <div style="margin-top: 1rem; font-size: 0.75rem; text-align: right; opacity:0.8;">
+      🔗 Sertifikaların doğrulanması için iletişime geçebilirsiniz.
+    </div>
+  </div>
+
+  <!-- STAJ TECRÜBELERİ -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">🏢</span>
+      <span>> internship --history</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="background:#061724; border-radius: 20px; padding: 1rem 1.5rem; flex:1;">
+        <div style="font-size:1.2rem; font-weight:bold;">🏛️ Adıyaman Valiliği</div>
+        <div>23 Temmuz 2024 - 23 Ağustos 2024</div>
+        <div style="font-size:0.85rem; margin-top: 8px;">Kurumsal ağ güvenliği, teknik destek, güvenlik duvarı politikaları inceleme.</div>
+      </div>
+      <div style="background:#061724; border-radius: 20px; padding: 1rem 1.5rem; flex:1;">
+        <div style="font-size:1.2rem; font-weight:bold;">🎓 KSÜ Bilgi İşlem Daire Başkanlığı</div>
+        <div>16 Temmuz 2025 - 12 Ağustos 2025</div>
+        <div style="font-size:0.85rem; margin-top: 8px;">Sistem yönetimi, güvenlik yamaları, altyapı izleme ve siber olay farkındalığı.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HESAPLARIM & SOSYAL AĞLAR (CV ve mail/github) -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">🌐</span>
+      <span>> cat /etc/accounts.conf</span>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/BM-Mehmet" class="social-card" target="_blank" rel="noopener">
+        <span class="social-icon">🐙</span> GitHub | BM-Mehmet
+      </a>
+      <a href="https://medium.com/@bm-mehmet" class="social-card" target="_blank" rel="noopener">
+        <span class="social-icon">📄</span> Medium | @bm-mehmet
+      </a>
+      <a href="mailto:Bm_Mehmet_Cam@proton.me" class="social-card">
+        <span class="social-icon">📧</span> Proton Mail | Bm_Mehmet_Cam
+      </a>
+    </div>
+    <div style="margin-top: 1.5rem; border-left: 2px solid #2c786c; padding-left: 1rem; font-size:0.8rem;">
+      ⚡ PGP Key Fingerprint: 3F2A 1B8C 9D0E 7F4A 6E21  8B4C D57E 9A21 0C34 7F88<br>
+      🔗 Referans: Doç. Dr. İbrahim Taner Okumuş - iokumus@ksu.edu.tr
+    </div>
+  </div>
+
+  <!-- ÇALIŞABİLECEĞİM ALANLAR (CV'den alıntı) -->
+  <div class="card">
+    <div class="section-title">
+      <span class="icon-badge">💼</span>
+      <span>> job.target --preferences</span>
+    </div>
+    <p style="margin-bottom: 8px;">Kendimi birçok alanda geliştirdim, geliştirmeye devam ediyorum:</p>
+    <div class="skills-cloud" style="margin-top: 0px;">
+      <span class="skill-badge">🖥️ Sistem Kurulumu & Yönetimi</span>
+      <span class="skill-badge">🛠️ Teknik Destek</span>
+      <span class="skill-badge">🔐 Siber Güvenlik (Blue/Red Team)</span>
+      <span class="skill-badge">🐳 Konteyner Güvenliği</span>
+      <span class="skill-badge">🌐 WAF & Honeypot</span>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>✦ exploit( ) • defend( ) • innovate( ) ✦</span><br>
+    <span style="font-size:0.7rem;">Saf HTML/CSS ile siber güvenlik teması - CV'ye dayalı sertifikalar, projeler ve bağlantılar | Mehmet Çam (BM-Mehmet)</span><br>
+    <span style="opacity:0.5;">v2.0 | “Her gün yeni bir güvenlik açığı, her gün yeni bir öğrenme fırsatı.”</span>
+  </div>
+</div>
+</body>
+</html>
